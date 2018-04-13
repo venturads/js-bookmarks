@@ -6,14 +6,19 @@
 	<body>
 		<p id="outp">__</p>
 		<form>
-			<input type="url" id="url" placeholder="website name"/>
-			<input />
+			<input type="url" id="url" placeholder="http://"/>
+			<input type="text" id="name" placeholder="website"/>
+			<input type="submit" id="btn" value="Submit"/>
 		</form>
 		<script>
-			function getbtn(){
-				document.getElementById("outp").innerHTML = "hello world";
+			function getbtn(e){
+				let n = document.getElementById("url").value;
+				let m = document.getElementById("name").value;
+				document.getElementById("outp").innerHTML = n;
+				
+				e.preventDefault();
 			}
-			
+			document.getElementById("btn").addEventListener("click", getbtn);
 		</script>
 	</body>
 </html>
