@@ -9,15 +9,15 @@
 		<form>
 			<input type="url" id="url" placeholder="http://"/>
 			<input type="text" id="name" placeholder="website"/>
-			<input type="submit" id="btn" value="Submit"/>
+			<input type="button" id="btn" value="Submit"/>
 		</form>
 		<script>
 			function getbtn(e){
 				let n = document.getElementById("url").value;
 				let m = document.getElementById("name").value;
-				let webs = {"url":n,"name":m};
-				localStorage.setItem(webs[0].url, webs[0].name);
-				document.getElementById("outp").innerHTML = "link: " + n + " | website: " + m + "<br>";
+				let webs = {url:n,name:m};
+				localStorage.setItem(webs.url, webs.name);
+				//document.getElementById("outp").innerHTML = "link: " + n + " | website: " + m + "<br>";
 				//document.getElementById("outp2").innerHTML = m;
 				e.preventDefault();
 			}
