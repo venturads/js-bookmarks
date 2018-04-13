@@ -12,19 +12,34 @@
 			<input type="button" id="btn" value="Submit"/>
 		</form>
 		<script>
+			let n, m, webs, nm, site;
+			n = document.getElementById("url").value;
+			m = document.getElementById("name").value;
+			nm = localStorage.getItem("name");
+			site = localStorage.getItem("url");
+			document.getElementById("outp2").innerHTML = nm + "<input type='button' id='del' value='x'/>";
+			document.getElementById("outp").innerHTML = site + "<input type='button' id='del' value='x'/>";
+			
+			function del(){
+				localStorage.removeItem(this);
+			}
+			
 			function getbtn(e){
 				//document.getElementById("outp").innerHTML = "link: " + n + " | website: " + m + "<br>";
 				//document.getElementById("outp2").innerHTML = localStorage.getItem(url);
-				let n = document.getElementById("url").value;
-				let m = document.getElementById("name").value;
-				let webs = {url:n,name:m};
+				
+				webs = {url:n,name:m};
 				localStorage.setItem("name", webs.name);
 				localStorage.setItem("url", webs.url);
+				
+				document.getElementById("outp2").innerHTML = nm;
+				document.getElementById("outp").innerHTML = site;
+				alert(nm);
 				//to stop submitting form.
 				e.preventDefault();
 			}
 			document.getElementById("btn").addEventListener("click", getbtn);
-			document.getElementById("outp2").innerHTML = localStorage.getItem(name);
+			
 		</script>
 	</body>
 </html>
