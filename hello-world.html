@@ -4,15 +4,17 @@
 		
 	</head>
 	<body>
-		<div id="listview">
-			<p id="outp">__</p>
-			<p id="outp2">__</p>
+		<div class="col-md-6 col-md-offset-2 panel panel-primary">
+			<div id="listview" class="alert alert-success">
+				<p id="outp">__</p>
+				<p id="outp2">__</p>
+			</div>
+			<form id="frm" action="" method="GET" class="form-group">
+				<input type="url" id="url" class="form-control" placeholder="http://" required/>
+				<input type="text" id="name" class="form-control" placeholder="website" required/>
+				<input type="submit" id="btn" class="btn btn-primart" value="Submit"/>
+			</form>
 		</div>
-		<form id="frm" action="" method="GET">
-			<input type="url" id="url" placeholder="http://" required/>
-			<input type="text" id="name" placeholder="website" required/>
-			<input type="submit" id="btn" value="Submit"/>
-		</form>
 		<script>
 			let n, m, webs, nm, site;
 			nm = localStorage.getItem("name");
@@ -41,5 +43,14 @@
 			document.getElementById("btn").addEventListener("click", getbtn);
 			
 		</script>
+		
+		<!-- Latest compiled and minified CSS -->
+		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+		
+		<!-- jQuery library -->
+		<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+		
+		<!-- Latest compiled JavaScript -->
+		<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
 	</body>
 </html>
