@@ -4,9 +4,11 @@
 		
 	</head>
 	<body>
-		<p id="outp">__</p>
-		<p id="outp2">__</p>
-		<form>
+		<div id="listview">
+			<p id="outp">__</p>
+			<p id="outp2">__</p>
+		</div>
+		<form id="frm" action="" method="GET">
 			<input type="url" id="url" placeholder="http://" required/>
 			<input type="text" id="name" placeholder="website" required/>
 			<input type="submit" id="btn" value="Submit"/>
@@ -15,22 +17,24 @@
 			let n, m, webs, nm, site;
 			nm = localStorage.getItem("name");
 			site = localStorage.getItem("url");
-			n = document.getElementById("url").value;
-			m = document.getElementById("name").value;
-			document.getElementById("outp2").innerHTML = nm + "<input type='button' id='del' value='x'/>";
+			
+			document.getElementById("outp2").innerHTML = nm + "<input type='button' id='del' value='x' onClick='this.removeItem'/>";
 			document.getElementById("outp").innerHTML = site;
 			
 			function del(){
 				localStorage.removeItem("name");
 				localStorage.removeItem("url");
+				let dd = document.getElementById("listview");
+				dd.parentNode.removeChild(dd);
 			}
 			document.getElementById("del").addEventListener("click", del);
 			
 			function getbtn(e){
+				n = document.getElementById("url").value;
+				m = document.getElementById("name").value;
 				webs = {url:n,name:m};
 				localStorage.setItem("name", webs.name);
 				localStorage.setItem("url", webs.url);
-				
 				//to stop submitting form.
 				//e.preventDefault();
 			}
