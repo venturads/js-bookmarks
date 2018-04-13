@@ -5,6 +5,7 @@
 	</head>
 	<body>
 		<p id="outp">__</p>
+		<p id="outp2">__</p>
 		<form>
 			<input type="url" id="url" placeholder="http://"/>
 			<input type="text" id="name" placeholder="website"/>
@@ -14,8 +15,10 @@
 			function getbtn(e){
 				let n = document.getElementById("url").value;
 				let m = document.getElementById("name").value;
-				document.getElementById("outp").innerHTML = n;
-				
+				let webs = {"url":n,"name":m};
+				localStorage.setItem(webs[0].url, webs[0].name);
+				document.getElementById("outp").innerHTML = "link: " + n + " | website: " + m + "<br>";
+				//document.getElementById("outp2").innerHTML = m;
 				e.preventDefault();
 			}
 			document.getElementById("btn").addEventListener("click", getbtn);
